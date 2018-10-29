@@ -11,10 +11,10 @@ public class DatabaseConnection
 	public DatabaseConnection() {
 		
 		try{  
-//		Class.forName("com.mysql.cj.jdbc.Driver");  
+		//Class.forName("com.mysql.cj.jdbc.Driver");  
 				Class.forName("com.mysql.jdbc.Driver");
 				//connection setup
-				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");  
+				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","");  
 				//here shs_db is database name, root is username and password  is empty
 				 stmt=con.createStatement();  
 		}catch(Exception e){ System.out.println(e);}  
@@ -22,7 +22,6 @@ public class DatabaseConnection
 
 	public void readDb(String tableName)
 	{
-			
 			try {
 				rs = stmt.executeQuery("select * from "+tableName);
 			} catch (SQLException e) {
@@ -37,10 +36,7 @@ public class DatabaseConnection
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}  
-			
-			
-		
+			}  	
 	}
 	
 	public void closeDb()
@@ -52,6 +48,4 @@ public class DatabaseConnection
 			e.printStackTrace();
 		}  
 	}
-	
-
 }
