@@ -10,6 +10,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
 
 public class HomePage {
 
@@ -44,28 +45,32 @@ public class HomePage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("SHS Home-Page");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JEditorPane dtrpnChooseAnyOf = new JEditorPane();
 		dtrpnChooseAnyOf.setText("Choose Any one option");
+		dtrpnChooseAnyOf.setEditable(false);
 		dtrpnChooseAnyOf.setBounds(63, 43, 183, 21);
 		frame.getContentPane().add(dtrpnChooseAnyOf);
 		
 		JEditorPane dtrpnAdmin = new JEditorPane();
 		dtrpnAdmin.setText("Admin");
+		dtrpnAdmin.setEditable(false);
 		dtrpnAdmin.setBounds(63, 71, 183, 21);
 		frame.getContentPane().add(dtrpnAdmin);
 		
 		JEditorPane dtrpnPatient = new JEditorPane();
 		dtrpnPatient.setText("Patient");
+		dtrpnPatient.setEditable(false);
 		dtrpnPatient.setBounds(63, 100, 183, 21);
 		frame.getContentPane().add(dtrpnPatient);
 		
 		JEditorPane dtrpnDoctor = new JEditorPane();
 		dtrpnDoctor.setText("Doctor");
+		dtrpnDoctor.setEditable(false);
 		dtrpnDoctor.setBounds(63, 128, 183, 21);
 		frame.getContentPane().add(dtrpnDoctor);
 		

@@ -3,6 +3,7 @@ package oopd.project.code;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
@@ -23,10 +24,12 @@ public class AdminView {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextPane txtpnPassword;
+
 	 
 	/**
 	 * Launch the application.
 	 */
+	static AdminView window=new AdminView();
 	public void invoke()
 	{
 		EventQueue.invokeLater(new Runnable() {
@@ -52,7 +55,7 @@ public class AdminView {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("Admin");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -69,38 +72,58 @@ public class AdminView {
 		
 		JTextPane txtpnUserName = new JTextPane();
 		txtpnUserName.setText("User Name");
+		txtpnUserName.setEditable(false);
 		txtpnUserName.setBounds(145, 41, 149, 21);
 		frame.getContentPane().add(txtpnUserName);
 		
 		txtpnPassword = new JTextPane();
 		txtpnPassword.setText("Password");
+		txtpnPassword.setEditable(false);
 		txtpnPassword.setBounds(144, 112, 150, 21);
 		frame.getContentPane().add(txtpnPassword);
-		
+		int flag = 0;
 		Button button = new Button("Login");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Login successful");
-				String username = textField.getText();
-				String password = textField_1.getText();
-				System.out.println("User name = "+username);
-				System.out.println("Password ="+password);
-				try {
-		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");
-		 
-		            String sql = "INSERT INTO Doctor(Name, Password) values (?, ?)";
-		            PreparedStatement statement = conn.prepareStatement(sql);
-		            statement.setString(1, username);
-		            statement.setString(2, password);
-		 
-		            int row = statement.executeUpdate();
-		            if (row > 0) {
-		                System.out.println("Insert in Database successfully done.");
-		            }
-		            conn.close();
-		        } catch (SQLException ex) {
-		            ex.printStackTrace();
-		        } 
+//				System.out.println("Login successful");
+				String username1 = textField.getText();
+				String password1 = textField_1.getText();
+				
+				if(username1.equals(adminId) & password1.equals(adminPassword))
+				{
+					System.out.println("Login Succsessfully done!");
+					AdminWork adminWork = new AdminWork();
+					window.frame.dispose();
+					adminWork.invoke();
+					
+				}
+				else
+				{
+					System.out.println("Incorrect Info!");
+					JOptionPane.showMessageDialog(frame, "Incorrect Info!");
+					window.frame.dispose();
+					window.invoke();
+					
+				}
+				
+//				System.out.println("User name = "+username);
+//				System.out.println("Password ="+password);
+//				try {
+//		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");
+//		 
+//		            String sql = "INSERT INTO Doctor(Name, Password) values (?, ?)";
+//		            PreparedStatement statement = conn.prepareStatement(sql);
+//		            statement.setString(1, username);
+//		            statement.setString(2, password);
+//		 
+//		            int row = statement.executeUpdate();
+//		            if (row > 0) {
+//		                System.out.println("Insert in Database successfully done.");
+//		            }
+//		            conn.close();
+//		        } catch (SQLException ex) {
+//		            ex.printStackTrace();
+//		        } 
 			}
 		});
 		button.setBounds(154, 192, 86, 23);
