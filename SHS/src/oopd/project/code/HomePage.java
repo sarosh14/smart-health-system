@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class HomePage {
 
@@ -48,43 +52,12 @@ public class HomePage {
 		frame = new JFrame("SHS Home-Page");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JEditorPane dtrpnChooseAnyOf = new JEditorPane();
-		dtrpnChooseAnyOf.setText("Choose Any one option");
-		dtrpnChooseAnyOf.setEditable(false);
-		dtrpnChooseAnyOf.setBounds(63, 43, 183, 21);
-		frame.getContentPane().add(dtrpnChooseAnyOf);
-		
-		JEditorPane dtrpnAdmin = new JEditorPane();
-		dtrpnAdmin.setText("Admin");
-		dtrpnAdmin.setEditable(false);
-		dtrpnAdmin.setBounds(63, 71, 183, 21);
-		frame.getContentPane().add(dtrpnAdmin);
-		
-		JEditorPane dtrpnPatient = new JEditorPane();
-		dtrpnPatient.setText("Patient");
-		dtrpnPatient.setEditable(false);
-		dtrpnPatient.setBounds(63, 100, 183, 21);
-		frame.getContentPane().add(dtrpnPatient);
-		
-		JEditorPane dtrpnDoctor = new JEditorPane();
-		dtrpnDoctor.setText("Doctor");
-		dtrpnDoctor.setEditable(false);
-		dtrpnDoctor.setBounds(63, 128, 183, 21);
-		frame.getContentPane().add(dtrpnDoctor);
 		
 		JRadioButton radioButton = new JRadioButton("");
-		radioButton.setBounds(254, 69, 144, 23);
-		frame.getContentPane().add(radioButton);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
-		rdbtnNewRadioButton.setBounds(254, 100, 144, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
-		rdbtnNewRadioButton_1.setBounds(254, 126, 144, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		ButtonGroup G = new ButtonGroup();
 		G.add(radioButton);
@@ -114,7 +87,61 @@ public class HomePage {
 				
 			}
 		});
-		btnNewButton.setBounds(63, 161, 114, 25);
-		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblChooseAnyOne = new JLabel("Choose Any one option");
+		
+		JLabel lblAdmin = new JLabel("Admin");
+		
+		JLabel lblPatient = new JLabel("Patient");
+		
+		JLabel lblDoctor = new JLabel("Doctor");
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(61)
+					.addComponent(lblChooseAnyOne, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(63)
+					.addComponent(lblAdmin, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+					.addGap(82)
+					.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(63)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblPatient)
+						.addComponent(lblDoctor, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+					.addGap(125)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(63)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(34)
+					.addComponent(lblChooseAnyOne)
+					.addGap(20)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAdmin)
+						.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(4)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblPatient)
+							.addGap(10)
+							.addComponent(lblDoctor))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(16)
+							.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+						.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(6)
+					.addComponent(btnNewButton))
+		);
+		frame.getContentPane().setLayout(groupLayout);
 	}
 }

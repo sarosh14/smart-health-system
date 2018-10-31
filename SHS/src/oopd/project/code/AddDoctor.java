@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JLabel;
 
 public class AddDoctor {
 
@@ -36,11 +37,13 @@ public class AddDoctor {
 	/**
 	 * Launch the application.
 	 */
+	static AddDoctor window = new AddDoctor();
+	private JLabel lblYyyymmdd;
 	public void invoke() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddDoctor window = new AddDoctor();
+					
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -206,6 +209,10 @@ public class AddDoctor {
 		});
 		btnNewButton.setBounds(32, 239, 61, 25);
 		frame.getContentPane().add(btnNewButton);
+		
+		lblYyyymmdd = new JLabel("* yyyy/MM/dd");
+		lblYyyymmdd.setBounds(328, 53, 92, 21);
+		frame.getContentPane().add(lblYyyymmdd);
 		
 	          
 //	    

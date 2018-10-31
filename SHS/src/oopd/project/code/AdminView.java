@@ -39,7 +39,7 @@ public class AdminView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminView window = new AdminView();
+					
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -77,14 +77,15 @@ public class AdminView {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Login successful");
+				//System.out.println("Login successful");
 				String username1 = textField.getText();
 				String password1 = textField_1.getText();
 				
 				if(username1.equals(adminId) & password1.equals(adminPassword))
 				{
-					System.out.println("Login Succsessfully done!");
+					//System.out.println("Login Succsessfully done!");
 					AdminWork adminWork = new AdminWork();
+					
 					window.frame.dispose();
 					adminWork.invoke();
 					
@@ -97,26 +98,6 @@ public class AdminView {
 					window.invoke();
 					
 				}
-				
-//				System.out.println("User name = "+username);
-//				System.out.println("Password ="+password);
-//				try {
-//		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");
-//		 
-//		            String sql = "INSERT INTO Doctor(Name, Password) values (?, ?)";
-//		            PreparedStatement statement = conn.prepareStatement(sql);
-//		            statement.setString(1, username);
-//		            statement.setString(2, password);
-//		 
-//		            int row = statement.executeUpdate();
-//		            if (row > 0) {
-//		                System.out.println("Insert in Database successfully done.");
-//		            }
-//		            conn.close();
-//		        } catch (SQLException ex) {
-//		            ex.printStackTrace();
-//		        } 
-			
 			}
 			
 		});

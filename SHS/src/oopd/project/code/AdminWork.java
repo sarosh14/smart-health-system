@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class AdminWork {
 
@@ -24,7 +26,7 @@ public class AdminWork {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminWork window = new AdminWork();
+//					AdminWork window = new AdminWork();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,27 +49,16 @@ public class AdminWork {
 		frame = new JFrame("Admin");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
 		JRadioButton rdbtn1 = new JRadioButton("");
-		rdbtn1.setBounds(259, 96, 144, 21);
-		frame.getContentPane().add(rdbtn1);
 		
 		JRadioButton rdbtn2 = new JRadioButton("");
-		rdbtn2.setBounds(259, 77, 144, 23);
-		frame.getContentPane().add(rdbtn2);
 		
 		JRadioButton rdbtn3 = new JRadioButton("");
-		rdbtn3.setBounds(259, 116, 144, 23);
-		frame.getContentPane().add(rdbtn3);
 		
 		JRadioButton rdbtn4 = new JRadioButton("");
-		rdbtn4.setBounds(259, 141, 144, 25);
-		frame.getContentPane().add(rdbtn4);
 		
 		JRadioButton rdbtn5 = new JRadioButton("");
-		rdbtn5.setBounds(259, 158, 144, 31);
-		frame.getContentPane().add(rdbtn5);
 		ButtonGroup G = new ButtonGroup();
 		G.add(rdbtn1);
 		G.add(rdbtn2);
@@ -78,14 +69,14 @@ public class AdminWork {
 		JButton btnNewButton = new JButton("Select");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(rdbtn1.isSelected())
+				if(rdbtn2.isSelected())
 				{
 					AddDoctor addDoctor = new AddDoctor();
 					window.frame.dispose();
 					addDoctor.invoke();
 					
 				}
-				if(rdbtn2.isSelected())
+				if(rdbtn1.isSelected())
 				{
 					//REmove doctor
 				}
@@ -103,36 +94,99 @@ public class AdminWork {
 				}
 			}
 		});
-		btnNewButton.setBounds(64, 201, 114, 25);
-		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("                       Welcome Admin");
-		lblNewLabel.setBounds(64, 12, 285, 15);
-		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("You can perform following task");
-		lblNewLabel_1.setBounds(64, 38, 266, 15);
-		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblAddDoctor = new JLabel("1- Add Doctor");
-		lblAddDoctor.setBounds(64, 77, 128, 15);
-		frame.getContentPane().add(lblAddDoctor);
 		
 		JLabel lblRemoveDoctor = new JLabel("2- Remove Doctor");
-		lblRemoveDoctor.setBounds(64, 96, 139, 15);
-		frame.getContentPane().add(lblRemoveDoctor);
 		
 		JLabel lblViewPatient = new JLabel("3- View Patient Info");
-		lblViewPatient.setBounds(64, 121, 149, 15);
-		frame.getContentPane().add(lblViewPatient);
 		
 		JLabel lblViewDoctor = new JLabel("4- View Doctor Info");
-		lblViewDoctor.setBounds(64, 141, 139, 15);
-		frame.getContentPane().add(lblViewDoctor);
 		
 		JLabel lblReassignDoctor = new JLabel("5- Reassign Doctor");
-		lblReassignDoctor.setBounds(64, 161, 149, 15);
-		frame.getContentPane().add(lblReassignDoctor);
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(64)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+							.addGap(54))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+							.addGap(73))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblAddDoctor, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+									.addGap(21))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblRemoveDoctor, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+									.addGap(10))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblViewPatient, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+									.addGap(10)))
+							.addGap(46)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdbtn3, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+								.addComponent(rdbtn2, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+								.addComponent(rdbtn1, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblViewDoctor, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+									.addGap(10))
+								.addComponent(lblReassignDoctor, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+							.addGap(46)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdbtn5, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+								.addComponent(rdbtn4, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+							.addGap(225)))
+					.addGap(47))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(12)
+					.addComponent(lblNewLabel)
+					.addGap(11)
+					.addComponent(lblNewLabel_1)
+					.addGap(24)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblAddDoctor)
+							.addGap(4)
+							.addComponent(lblRemoveDoctor)
+							.addGap(10)
+							.addComponent(lblViewPatient))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(39)
+							.addComponent(rdbtn3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+						.addComponent(rdbtn2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(19)
+							.addComponent(rdbtn1)))
+					.addGap(2)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblViewDoctor)
+							.addGap(5)
+							.addComponent(lblReassignDoctor))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(17)
+							.addComponent(rdbtn5, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+						.addComponent(rdbtn4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addGap(12)
+					.addComponent(btnNewButton))
+		);
+		frame.getContentPane().setLayout(groupLayout);
 	}
 
 }
