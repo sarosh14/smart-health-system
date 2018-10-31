@@ -2,7 +2,9 @@
 *.class
 
 # Log file
-*.log
+*.log*
+
+/SHS/src/oopd/project/database/DatabaseConnection.java
 
 # BlueJ files
 *.ctxt
