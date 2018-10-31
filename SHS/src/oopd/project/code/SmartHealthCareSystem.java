@@ -21,7 +21,10 @@ public class SmartHealthCareSystem {
 		
 		logs.LOGGER.info("Hello");
 	
-		 
+
+		HomePage homePage=new HomePage();
+		homePage.invoke();
+	
 	}
 	
 	
