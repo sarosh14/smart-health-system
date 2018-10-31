@@ -1,6 +1,8 @@
 package oopd.project.code;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JEditorPane;
@@ -53,17 +55,6 @@ public class AddDoctor {
 	public AddDoctor() {
 		initialize();
 	}
-	
-//	public class Gender {
-//	    private String Male;
-//	    private String Female;
-//
-//	    // Getters and setters
-//
-//	    public String toString() {
-//	        return Male + " " + Female;
-//	    }
-//	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -74,43 +65,59 @@ public class AddDoctor {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);   
 		
+		//increse jframe size
+		//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		//frame.setSize(screenSize.width,screenSize.height); 
 		
 		
 		JEditorPane dtrpnName = new JEditorPane();
-		dtrpnName.setText("Doctor Name");
+		dtrpnName.setText("1- Doctor Name");
 		dtrpnName.setBounds(32, 37, 107, 21);
+		dtrpnName.setEditable(false);
 		frame.getContentPane().add(dtrpnName);
 		
 		JEditorPane dtrpnDepartmentId = new JEditorPane();
-		dtrpnDepartmentId.setText("Department Id");
+		dtrpnDepartmentId.setText("2- Department Id");
 		dtrpnDepartmentId.setBounds(32, 144, 107, 21);
 		frame.getContentPane().add(dtrpnDepartmentId);
+		dtrpnDepartmentId.setEditable(false);
 		
 		JEditorPane dtrpnRank = new JEditorPane();
-		dtrpnRank.setText("Rank");
+		dtrpnRank.setText("3- Rank");
 		dtrpnRank.setBounds(32, 169, 107, 21);
 		frame.getContentPane().add(dtrpnRank);
+		dtrpnRank.setEditable(false);
 		
 		JEditorPane dtrpnOpdFee = new JEditorPane();
-		dtrpnOpdFee.setText("OPD Fees");
+		dtrpnOpdFee.setText("4- OPD Fees");
 		dtrpnOpdFee.setBounds(32, 193, 107, 21);
 		frame.getContentPane().add(dtrpnOpdFee);
+		dtrpnOpdFee.setEditable(false);
 		
 		JEditorPane dtrpnDob = new JEditorPane();
-		dtrpnDob.setText("D.O.B");
+		dtrpnDob.setText("5- D.O.B");
 		dtrpnDob.setBounds(32, 53, 107, 21);
 		frame.getContentPane().add(dtrpnDob);
+		dtrpnDob.setEditable(false);
 		
 		JEditorPane dtrpnGender = new JEditorPane();
-		dtrpnGender.setText("Gender");
+		dtrpnGender.setText("6- Gender");
 		dtrpnGender.setBounds(32, 86, 107, 21);
 		frame.getContentPane().add(dtrpnGender);
+		dtrpnGender.setEditable(false);
 		
 		dtrpnAddress = new JEditorPane();
-		dtrpnAddress.setText("Address");
+		dtrpnAddress.setText("7- Address");
 		dtrpnAddress.setEditable(false);
 		dtrpnAddress.setBounds(32, 111, 107, 21);
 		frame.getContentPane().add(dtrpnAddress);
+		dtrpnAddress.setEditable(false);
+		
+		dtrpnS = new JEditorPane();
+		dtrpnS.setText("8- Surgeon");
+		dtrpnS.setBounds(32, 218, 107, 21);
+		frame.getContentPane().add(dtrpnS);
+		dtrpnS.setEditable(false);
 		
 		textField = new JTextField();
 		textField.setBounds(165, 37, 124, 19);
@@ -144,19 +151,15 @@ public class AddDoctor {
 		frame.getContentPane().add(textField_6);
 		textField_6.setColumns(10);
 				
-		dtrpnS = new JEditorPane();
-		dtrpnS.setText("Surgeon");
-		dtrpnS.setBounds(32, 218, 107, 21);
-		frame.getContentPane().add(dtrpnS);
-		
+	
 		String gender[]={"Male","Female"};  
 		comboBox = new JComboBox(gender);
-		comboBox.setBounds(165, 83, 124, 24);
+		comboBox.setBounds(165, 83, 77, 24);
 		frame.getContentPane().add(comboBox);
 		
 		String sergeon[]= {"Yes","No"};
 		comboBox_1 = new JComboBox(sergeon);
-		comboBox_1.setBounds(165, 218, 124, 24);
+		comboBox_1.setBounds(165, 218, 52, 24);
 		frame.getContentPane().add(comboBox_1);
 		
 		btnNewButton = new JButton("Add");
@@ -168,9 +171,12 @@ public class AddDoctor {
 				
 				String doctname = textField.getText();
 				String dob = textField_1.getText();
+				
 				String deptid = textField_3.getText();
 				String rank = textField_4.getText();
-				String fee = textField_5.getText();
+				String fe = textField_5.getText();
+				int fee = Integer.parseInt(fe);
+				
 				String address = textField_6.getText();
 				
 				System.out.println(doctname+" "+dob+" "+gend+" "+address+" "+deptid+" "+rank+" "+serg+" "+fee);
@@ -186,7 +192,7 @@ public class AddDoctor {
 		            statement.setString(5, deptid);
 		            statement.setString(6, rank);
 		            statement.setString(7, serg);
-		            statement.setString(8, fee);
+		            statement.setInt(8, fee);
 		            
 		            int row = statement.executeUpdate();
 		            if (row > 0) {
@@ -198,7 +204,7 @@ public class AddDoctor {
 		        } 
 			}
 		});
-		btnNewButton.setBounds(32, 239, 81, 25);
+		btnNewButton.setBounds(32, 239, 61, 25);
 		frame.getContentPane().add(btnNewButton);
 		
 	          

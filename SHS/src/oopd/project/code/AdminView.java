@@ -15,6 +15,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AdminView {
 
@@ -23,13 +27,13 @@ public class AdminView {
 	private String adminPassword="admin";
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextPane txtpnPassword;
 
 	 
 	/**
 	 * Launch the application.
 	 */
 	static AdminView window=new AdminView();
+	private JLabel lblPas;
 	public void invoke()
 	{
 		EventQueue.invokeLater(new Runnable() {
@@ -58,34 +62,22 @@ public class AdminView {
 		frame = new JFrame("Admin");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(145, 74, 149, 26);
-		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(145, 145, 149, 26);
-		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-		
-		JTextPane txtpnUserName = new JTextPane();
-		txtpnUserName.setText("User Name");
-		txtpnUserName.setEditable(false);
-		txtpnUserName.setBounds(145, 41, 149, 21);
-		frame.getContentPane().add(txtpnUserName);
-		
-		txtpnPassword = new JTextPane();
-		txtpnPassword.setText("Password");
-		txtpnPassword.setEditable(false);
-		txtpnPassword.setBounds(144, 112, 150, 21);
-		frame.getContentPane().add(txtpnPassword);
 		int flag = 0;
-		Button button = new Button("Login");
-		button.addActionListener(new ActionListener() {
+		
+		JLabel lblUserName = new JLabel("User Name");
+		
+		lblPas = new JLabel("Password");
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				System.out.println("Login successful");
+				System.out.println("Login successful");
 				String username1 = textField.getText();
 				String password1 = textField_1.getText();
 				
@@ -124,9 +116,48 @@ public class AdminView {
 //		        } catch (SQLException ex) {
 //		            ex.printStackTrace();
 //		        } 
+			
 			}
+			
 		});
-		button.setBounds(154, 192, 86, 23);
-		frame.getContentPane().add(button);
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(145)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+							.addGap(223))
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblPas)
+								.addContainerGap())
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+								.addContainerGap())
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+								.addGap(146))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+								.addGap(145)))))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(41)
+					.addComponent(lblUserName, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblPas)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnLogin)
+					.addGap(86))
+		);
+		frame.getContentPane().setLayout(groupLayout);
 	}
 }
