@@ -1,41 +1,28 @@
 package oopd.project.code;
-
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import java.awt.Button;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class AdminView {
+public class DoctorSignIn {
 
 	private JFrame frame;
 	private String adminId="admin";
 	private String adminPassword="admin";
 	private JTextField textField;
-
-	private JTextField textField_1;
-
-
-	 
 	/**
 	 * Launch the application.
 	 */
-	static AdminView window=new AdminView();
+	static DoctorSignIn window=new DoctorSignIn();
 	private JLabel lblPas;
 	private JPasswordField textField_1;
 	public void invoke()
@@ -55,15 +42,15 @@ public class AdminView {
 	/**
 	 * Create the application.
 	 */
-	public AdminView() {
+	public DoctorSignIn() {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-		private void initialize() {
-		frame = new JFrame("Admin");
+	private void initialize() {
+		frame = new JFrame("Doctor");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -85,22 +72,18 @@ public class AdminView {
 				if(username1.equals(adminId) & password1.equals(adminPassword))
 				{
 					//System.out.println("Login Succsessfully done!");
-					AdminWork adminWork = new AdminWork();
-					
+					AdminWork adminWork = new AdminWork();		
 					window.frame.dispose();
-					adminWork.invoke();
-					
+					adminWork.invoke();		
 				}
 				else
 				{
 					System.out.println("Incorrect Info!");
 					JOptionPane.showMessageDialog(frame, "Incorrect Info!");
 					window.frame.dispose();
-					window.invoke();
-					
+					window.invoke();		
 				}
-			}
-			
+			}		
 		});
 		
 		textField_1 = new JPasswordField();
