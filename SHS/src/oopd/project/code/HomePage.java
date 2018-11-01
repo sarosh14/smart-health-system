@@ -70,12 +70,12 @@ public class HomePage {
 			public void actionPerformed(ActionEvent arg0) {
 				if(radioButton.isSelected())
 				{
-//					AdminView adminView = new AdminView();
-//					window.frame.dispose();
-//					adminView.invoke();
-					DoctorProfile doctorProfile =new DoctorProfile();
+					AdminView adminView = new AdminView();
 					window.frame.dispose();
-					doctorProfile.invoke();
+					adminView.invoke();
+//					DoctorProfile doctorProfile =new DoctorProfile();
+//					window.frame.dispose();
+//					doctorProfile.invoke();
 					
 				}
 				else if(rdbtnNewRadioButton.isSelected())
