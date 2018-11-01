@@ -70,9 +70,12 @@ public class HomePage {
 			public void actionPerformed(ActionEvent arg0) {
 				if(radioButton.isSelected())
 				{
-					AdminView adminView = new AdminView();
+//					AdminView adminView = new AdminView();
+//					window.frame.dispose();
+//					adminView.invoke();
+					DoctorProfile doctorProfile =new DoctorProfile();
 					window.frame.dispose();
-					adminView.invoke();
+					doctorProfile.invoke();
 					
 				}
 				else if(rdbtnNewRadioButton.isSelected())
@@ -107,7 +110,7 @@ public class HomePage {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(290))
+							.addGap(286))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
@@ -115,10 +118,10 @@ public class HomePage {
 										.addGroup(groupLayout.createSequentialGroup()
 											.addComponent(lblPatient, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 											.addGap(10))
-										.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
+										.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
 									.addGap(54))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblDoctor, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+									.addComponent(lblDoctor, GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
 									.addPreferredGap(ComponentPlacement.RELATED)))
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
@@ -134,24 +137,24 @@ public class HomePage {
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(34)
-					.addComponent(lblChooseAnyOne, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+					.addContainerGap()
+					.addComponent(lblChooseAnyOne, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
 					.addGap(20)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+							.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
 							.addGap(12))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 5, Short.MAX_VALUE)
+							.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
 							.addGap(16)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(5)
-							.addComponent(lblPatient, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(lblPatient, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
 							.addGap(1))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 15, Short.MAX_VALUE)
+							.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
 							.addGap(6)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -160,10 +163,10 @@ public class HomePage {
 							.addGap(5))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(15)
-							.addComponent(rdbtnNewRadioButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 12, Short.MAX_VALUE)
-					.addGap(73))
+							.addComponent(rdbtnNewRadioButton_1, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
+					.addGap(25)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
+					.addGap(50))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

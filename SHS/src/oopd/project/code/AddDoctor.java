@@ -22,7 +22,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AddDoctor {
-
+	
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_3;
@@ -48,6 +48,7 @@ public class AddDoctor {
 	private JLabel lblRank;
 	private JLabel lblOpdFees;
 	private JLabel lblSurgeon;
+	private JLabel label;
 	public void invoke() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -73,8 +74,15 @@ public class AddDoctor {
 	 */
 	private void initialize() {
 		frame = new JFrame("Add Doctor");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(150, 150, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		//JScrollPane pane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        //frame.setContentPane(pane);
+
+		
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -163,6 +171,8 @@ public class AddDoctor {
 		lblOpdFees = new JLabel("7- OPD Fees");
 		
 		lblSurgeon = new JLabel("8- Surgeon");
+		
+		label = new JLabel("");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -171,51 +181,59 @@ public class AddDoctor {
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblDoctorName, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+								.addComponent(lblSurgeon, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblDob, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-									.addGap(41)))
-							.addGap(37)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblYyyymmdd, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-							.addGap(16))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblGender, GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-							.addGap(41)
-							.addComponent(comboBox, 0, 87, Short.MAX_VALUE)
-							.addGap(178))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblSurgeon, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+									.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
 									.addGap(31)))
 							.addGap(41)
-							.addComponent(comboBox_1, 0, 57, Short.MAX_VALUE)
+							.addComponent(comboBox_1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addGap(213))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblOpdFees, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+									.addComponent(lblOpdFees, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
 									.addGap(41))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblRank, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+									.addComponent(lblRank, GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
 									.addGap(52))
-								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblAddress, GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+									.addComponent(lblAddress, GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
 									.addGap(26)))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(textField_6)
-								.addComponent(textField_3, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-								.addComponent(textField_4, Alignment.LEADING)
-								.addComponent(textField_5, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-							.addGap(141)))
-					.addContainerGap())
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_6, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+								.addComponent(textField_3, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+									.addGap(5))
+								.addComponent(textField_5, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+							.addGap(141))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblDoctorName, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(lblDob, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+											.addGap(41)))
+									.addGap(37))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblGender, GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+									.addGap(35)))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(comboBox, 0, 81, Short.MAX_VALUE)
+									.addGap(184))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+										.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(lblYyyymmdd, GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+									.addGap(16)))))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(label))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -224,29 +242,31 @@ public class AddDoctor {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblDoctorName)
-								.addComponent(textField))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(4)
+									.addComponent(lblDoctorName, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(7)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblDob)
-								.addComponent(textField_1))
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(1))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(25)
-							.addComponent(lblYyyymmdd, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)))
-					.addGap(9)
+							.addComponent(lblYyyymmdd, GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(1)
+							.addGap(10)
 							.addComponent(lblGender))
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(8)
 							.addComponent(lblAddress, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(11)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
@@ -268,21 +288,16 @@ public class AddDoctor {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(5)
-							.addComponent(lblSurgeon)
+							.addComponent(lblSurgeon, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
 							.addGap(1)
-							.addComponent(btnNewButton))
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(label))
+							.addGap(22))))
 		);
 		frame.getContentPane().setLayout(groupLayout);
-		
-	          
-//	    
-//	    JComboBox cb=new JComboBox(country);    
-//	    cb.setBounds(50, 50,90,20);    
-//	    frame.add(cb);        
-//	    frame.setLayout(null);    
-//	    frame.setSize(400,500);    
-//	    frame.setVisible(true);
 	
 	}
 }
