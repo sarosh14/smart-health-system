@@ -28,7 +28,7 @@ public class AdminView {
 	private String adminPassword="admin";
 	private JTextField textField;
 
-	private JTextField textField_1;
+	
 
 
 	 
