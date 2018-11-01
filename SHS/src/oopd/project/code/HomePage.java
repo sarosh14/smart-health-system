@@ -76,7 +76,10 @@ public class HomePage {
 					
 				}
 				else if(rdbtnNewRadioButton.isSelected())
-				{
+				{   
+					PatientView PatientView = new PatientView();
+					window.frame.dispose();
+					PatientView.invoke();
 					//Patient
 				}
 				else if(rdbtnNewRadioButton_1.isSelected())

@@ -20,17 +20,17 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class AdminView {
+public class PatientView {
 
 	private JFrame frame;
-	private String adminId="admin";
-	private String adminPassword="admin";
+	private String PatientId="patient";
+	private String PatientPassword="patient";
 	private JTextField textField;
 	private JTextField textField_1;
 	/**
 	 * Launch the application.
 	 */
-	static AdminView window=new AdminView();
+	static PatientView window=new PatientView();
 	private JLabel lblPas;
 	public void invoke()
 	{
@@ -49,15 +49,15 @@ public class AdminView {
 	/**
 	 * Create the application.
 	 */
-	public AdminView() {
+	public PatientView() {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-		private void initialize() {
-		frame = new JFrame("Admin");
+	private void initialize() {
+		frame = new JFrame("Patient");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -79,13 +79,13 @@ public class AdminView {
 				String username1 = textField.getText();
 				String password1 = textField_1.getText();
 				
-				if(username1.equals(adminId) & password1.equals(adminPassword))
+				if(username1.equals(PatientId) & password1.equals(PatientPassword))
 				{
 					//System.out.println("Login Succsessfully done!");
-					AdminWork adminWork = new AdminWork();
+					PatientWork patientwork = new PatientWork();
 					
 					window.frame.dispose();
-					adminWork.invoke();
+					patientwork.invoke();    
 					
 				}
 				else
@@ -99,6 +99,24 @@ public class AdminView {
 			}
 			
 		});
+		
+		JButton btnNewUser = new JButton("New User");
+		btnNewUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//if new user in patient
+				AddNewPatient addnewPatient = new AddNewPatient();
+				window.frame.dispose();
+				addnewPatient.invoke();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -108,24 +126,29 @@ public class AdminView {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 							.addGap(223))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblPas)
-								.addContainerGap())
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-								.addContainerGap())
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-								.addGap(146))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-								.addGap(145)))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblPas)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+							.addGap(146))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+							.addGap(145))))
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(312, Short.MAX_VALUE)
+					.addComponent(btnNewUser)
+					.addGap(21))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(41)
+					.addContainerGap()
+					.addComponent(btnNewUser)
+					.addGap(4)
 					.addComponent(lblUserName, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)

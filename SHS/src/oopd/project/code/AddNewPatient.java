@@ -18,25 +18,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JLabel;
 
-public class AddDoctor {
+public class AddNewPatient {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JTextField textField_5;
-	private JEditorPane dtrpnAddress;
+	private JTextField dtrpnAddress;
 	private JTextField textField_6;
-	private JEditorPane dtrpnS;
 	private JComboBox comboBox;
-	private JComboBox comboBox_1;
 	private JTextField textField_1;
 	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
 	 */
-	static AddDoctor window = new AddDoctor();
+	static AddNewPatient window = new AddNewPatient();
 	private JLabel lblYyyymmdd;
 	public void invoke() {
 		EventQueue.invokeLater(new Runnable() {
@@ -54,7 +51,7 @@ public class AddDoctor {
 	/**
 	 * Create the application.
 	 */
-	public AddDoctor() {
+	public AddNewPatient() {
 		initialize();
 	}
 
@@ -62,7 +59,7 @@ public class AddDoctor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame("Add Doctor");
+		frame = new JFrame("Add New Patient");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);   
@@ -72,54 +69,42 @@ public class AddDoctor {
 		//frame.setSize(screenSize.width,screenSize.height); 
 		
 		
-		JEditorPane dtrpnName = new JEditorPane();
-		dtrpnName.setText("1- Doctor Name");
+		JTextField dtrpnName = new JTextField();
+		dtrpnName.setText("1- Name");
 		dtrpnName.setBounds(32, 37, 107, 21);
 		dtrpnName.setEditable(false);
 		frame.getContentPane().add(dtrpnName);
 		
-		JEditorPane dtrpnDepartmentId = new JEditorPane();
-		dtrpnDepartmentId.setText("2- Department Id");
+		JTextField dtrpnDepartmentId = new JTextField();
+		dtrpnDepartmentId.setText("5- Contact No.");
 		dtrpnDepartmentId.setBounds(32, 144, 107, 21);
 		frame.getContentPane().add(dtrpnDepartmentId);
 		dtrpnDepartmentId.setEditable(false);
 		
-		JEditorPane dtrpnRank = new JEditorPane();
-		dtrpnRank.setText("3- Rank");
+		JTextField dtrpnRank = new JTextField();
+		dtrpnRank.setText("6- Password");
 		dtrpnRank.setBounds(32, 169, 107, 21);
 		frame.getContentPane().add(dtrpnRank);
 		dtrpnRank.setEditable(false);
 		
-		JEditorPane dtrpnOpdFee = new JEditorPane();
-		dtrpnOpdFee.setText("4- OPD Fees");
-		dtrpnOpdFee.setBounds(32, 193, 107, 21);
-		frame.getContentPane().add(dtrpnOpdFee);
-		dtrpnOpdFee.setEditable(false);
-		
-		JEditorPane dtrpnDob = new JEditorPane();
-		dtrpnDob.setText("5- D.O.B");
+		JTextField dtrpnDob = new JTextField();
+		dtrpnDob.setText("2- D.O.B");
 		dtrpnDob.setBounds(32, 53, 107, 21);
 		frame.getContentPane().add(dtrpnDob);
 		dtrpnDob.setEditable(false);
 		
-		JEditorPane dtrpnGender = new JEditorPane();
-		dtrpnGender.setText("6- Gender");
+		JTextField dtrpnGender = new JTextField();
+		dtrpnGender.setText("3- Gender");
 		dtrpnGender.setBounds(32, 86, 107, 21);
 		frame.getContentPane().add(dtrpnGender);
 		dtrpnGender.setEditable(false);
 		
-		dtrpnAddress = new JEditorPane();
-		dtrpnAddress.setText("7- Address");
+		dtrpnAddress = new JTextField();
+		dtrpnAddress.setText("4- Address");
 		dtrpnAddress.setEditable(false);
 		dtrpnAddress.setBounds(32, 111, 107, 21);
 		frame.getContentPane().add(dtrpnAddress);
 		dtrpnAddress.setEditable(false);
-		
-		dtrpnS = new JEditorPane();
-		dtrpnS.setText("8- Surgeon");
-		dtrpnS.setBounds(32, 218, 107, 21);
-		frame.getContentPane().add(dtrpnS);
-		dtrpnS.setEditable(false);
 		
 		textField = new JTextField();
 		textField.setBounds(165, 37, 124, 19);
@@ -141,11 +126,6 @@ public class AddDoctor {
 		textField_4.setBounds(165, 171, 124, 19);
 		frame.getContentPane().add(textField_4);
 		textField_4.setColumns(10);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(165, 195, 124, 19);
-		frame.getContentPane().add(textField_5);
-		textField_5.setColumns(10);
 		//int fee = Integer.parseInt(fe);
 
 		textField_6 = new JTextField();
@@ -159,42 +139,39 @@ public class AddDoctor {
 		comboBox.setBounds(165, 83, 77, 24);
 		frame.getContentPane().add(comboBox);
 		
-		String sergeon[]= {"Yes","No"};
-		comboBox_1 = new JComboBox(sergeon);
-		comboBox_1.setBounds(165, 218, 52, 24);
-		frame.getContentPane().add(comboBox_1);
+		//String sergeon[]= {"Yes","No"};
 		
 		btnNewButton = new JButton("Add");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String gend = (String)comboBox.getEditor().getItem();
-				String serg = (String)comboBox_1.getEditor().getItem();
+				//String serg = (String)comboBox_1.getEditor().getItem();
 				
-				String doctname = textField.getText();
+				String patientname = textField.getText();
 				String dob = textField_1.getText();
 				
-				String deptid = textField_3.getText();
-				String rank = textField_4.getText();
-				String fe = textField_5.getText();
-				int fee = Integer.parseInt(fe);
-				
 				String address = textField_6.getText();
+				String contact = textField_3.getText();
+				String password = textField_4.getText();
+				//int fee = Integer.parseInt(fe);
 				
-				System.out.println(doctname+" "+dob+" "+gend+" "+address+" "+deptid+" "+rank+" "+serg+" "+fee);
+				//String address = textField_6.getText();
+				
+				//System.out.println(doctname+" "+dob+" "+gend+" "+address+" "+deptid+" "+rank+" "+serg+" "+fee);
 				try {
-		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");
+		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");
 		            
-		            String sql = "INSERT INTO Doctor(Name, DOB, Gender, Address, DeptId, Rank, Surgeon, OpdFees) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		            String sql = "INSERT INTO Patient(Name, DOB, Gender, Address, ContactNo, Password ) values (?, ?, ?, ?, ?, ?) ";
 		            PreparedStatement statement = conn.prepareStatement(sql);
-		            statement.setString(1, doctname);
+		            statement.setString(1, patientname);
 		            statement.setString(2, dob);
 		            statement.setString(3, gend);
 		            statement.setString(4, address);
-		            statement.setString(5, deptid);
-		            statement.setString(6, rank);
-		            statement.setString(7, serg);
-		            statement.setInt(8, fee);
+		            statement.setString(5, contact);
+		            statement.setString(6, password);
+		           // statement.setString(7, serg);
+		           // statement.setInt(8, fee);
 		            
 		            int row = statement.executeUpdate();
 		            if (row > 0) {

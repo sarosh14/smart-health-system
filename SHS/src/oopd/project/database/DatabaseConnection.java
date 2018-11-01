@@ -32,7 +32,7 @@ public class DatabaseConnection
 			
 			try {
 				while(rs.next())  
-				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getInt(3));
+				System.out.println(rs.getInt(1)+"  "+rs.getString(2));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
