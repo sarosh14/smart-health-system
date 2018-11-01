@@ -183,7 +183,7 @@ public class AddDoctor {
 				
 				System.out.println(doctname+" "+dob+" "+gend+" "+address+" "+deptid+" "+rank+" "+serg+" "+fee);
 				try {
-		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project","root","");
+		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");
 		            
 		            String sql = "INSERT INTO Doctor(Name, DOB, Gender, Address, DeptId, Rank, Surgeon, OpdFees) values (?, ?, ?, ?, ?, ?, ?, ?)";
 		            PreparedStatement statement = conn.prepareStatement(sql);

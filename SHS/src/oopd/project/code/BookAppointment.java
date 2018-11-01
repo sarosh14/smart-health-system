@@ -15,20 +15,20 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.BorderLayout;
 
-public class PatientWork {
+public class BookAppointment {
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
-	static PatientWork window = new PatientWork();
+	static BookAppointment window = new BookAppointment();
 	
 	public void invoke() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					PatientWork window = new PatientWork();
+//					BookAppointment window = new BookAppointment();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class PatientWork {
 	/**
 	 * Create the application.
 	 */
-	public PatientWork() {
+	public BookAppointment() {
 		initialize();
 	}
 
@@ -62,21 +62,19 @@ public class PatientWork {
 		JButton btnNewButton = new JButton("Select");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(rdbtn2.isSelected())
-				{  
-					// Open screen, appointment manually or automatically
-					BookAppointment bookappointment=new BookAppointment();
+				if(rdbtn1.isSelected() || rdbtn2.isSelected())
+				{
+					
+					PatientDescription patientdesc=new PatientDescription();
 					window.frame.dispose();
-					bookappointment.invoke();
+					patientdesc.invoke();
+					
 					
 				}
-				if(rdbtn1.isSelected())
+				/*if(rdbtn2.isSelected())
 				{
-					//edit Profile
-					PatientEditProfile patienteditprofile = new PatientEditProfile();
-					window.frame.dispose();
-					patienteditprofile.invoke();
-				}
+					//REmove doctor
+				}*/
 				
 			}
 		});
@@ -85,9 +83,9 @@ public class PatientWork {
 		
 		JLabel lblNewLabel_1 = new JLabel("You can perform following task");
 		
-		JLabel lblAddDoctor = new JLabel("1- Book Appointment");
+		JLabel lblAddDoctor = new JLabel("1- Appointment Manually");
 		
-		JLabel lblRemoveDoctor = new JLabel("2- Edit Profile");
+		JLabel lblRemoveDoctor = new JLabel("2- Appointment Automatically");
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

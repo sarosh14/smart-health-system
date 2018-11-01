@@ -1,25 +1,21 @@
 package oopd.project.code;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Toolkit;
-
-import javax.swing.JFrame;
-import javax.swing.JEditorPane;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.util.Date;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class AddNewPatient {
-
+public class PatientEditProfile {
+	
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_3;
@@ -33,7 +29,7 @@ public class AddNewPatient {
 	/**
 	 * Launch the application.
 	 */
-	static AddNewPatient window = new AddNewPatient();
+	static PatientEditProfile window = new PatientEditProfile();
 	private JLabel lblYyyymmdd;
 	public void invoke() {
 		EventQueue.invokeLater(new Runnable() {
@@ -51,7 +47,7 @@ public class AddNewPatient {
 	/**
 	 * Create the application.
 	 */
-	public AddNewPatient() {
+	public PatientEditProfile() {
 		initialize();
 	}
 
@@ -185,4 +181,7 @@ public class AddNewPatient {
 //	    frame.setVisible(true);
 	
 	}
+
+
+
 }

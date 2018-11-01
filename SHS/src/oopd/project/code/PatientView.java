@@ -19,12 +19,12 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
+import java.sql.*;
 public class PatientView {
 
 	private JFrame frame;
-	private String PatientId="patient";
-	private String PatientPassword="patient";
+	private String PatientId;
+	private String PatientPassword;
 	private JTextField textField;
 	private JTextField textField_1;
 	/**
@@ -32,6 +32,7 @@ public class PatientView {
 	 */
 	static PatientView window=new PatientView();
 	private JLabel lblPas;
+	private ResultSet rs;
 	public void invoke()
 	{
 		EventQueue.invokeLater(new Runnable() {
@@ -77,11 +78,36 @@ public class PatientView {
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Login successful");
 				String username1 = textField.getText();
-				String password1 = textField_1.getText();
-				
+				String password1 = textField_1.getText();//Select Password from Patient where name=username1
+				try{  
+					//Class.forName("com.mysql.cj.jdbc.Driver");  
+					
+							Class.forName("com.mysql.jdbc.Driver");
+							//connection setup
+							Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");  
+							//here shs_db is database name, root is username and password  is empty
+							Statement  stmt=con.createStatement(); 
+							
+							System.out.println("1==="+username1);
+							try
+							{
+							 rs=stmt.executeQuery("SELECT Name,Password FROM Patient "+
+							"where Name='"+username1+"'");
+							}
+						    catch(Exception e){ System.out.println(e);}
+							
+								while(rs.next())  
+								{
+									PatientId=rs.getString(1);
+									PatientPassword=rs.getString(2);       
+								}
+							
+							//String pswrd=rs.getString(1);  
+							
 				if(username1.equals(PatientId) & password1.equals(PatientPassword))
+				//if(password1.equals(pswrd))
 				{
-					//System.out.println("Login Succsessfully done!");
+					System.out.println("Login Succsessfully done!");
 					PatientWork patientwork = new PatientWork();
 					
 					window.frame.dispose();
@@ -96,6 +122,7 @@ public class PatientView {
 					window.invoke();
 					
 				}
+				}catch(Exception e){ System.out.println(e);}
 			}
 			
 		});
@@ -119,16 +146,13 @@ public class PatientView {
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(145)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(223))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblPas)
-							.addContainerGap())
+							.addComponent(lblPas, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+							.addGap(225))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
 							.addContainerGap())
@@ -137,27 +161,30 @@ public class PatientView {
 							.addGap(146))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-							.addGap(145))))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(312, Short.MAX_VALUE)
-					.addComponent(btnNewUser)
+							.addGap(145))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+							.addGap(212))))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(327)
+					.addComponent(btnNewUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(21))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnNewUser)
+					.addComponent(btnNewUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(4)
-					.addComponent(lblUserName, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblPas)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLogin)
+					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
 					.addGap(86))
 		);
 		frame.getContentPane().setLayout(groupLayout);
