@@ -6,7 +6,6 @@ import java.util.logging.*;
 
 /**
  * 
- * @author sarosh
  *	this class is used for logging exceptions to a text file.
  */
 public class LogExceptionsToFile {

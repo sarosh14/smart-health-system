@@ -2,21 +2,21 @@ package oopd.project.database;
 import java.sql.*;
 
 
+
 public class DatabaseConnection 
 {
 	private Connection con;
 	private Statement stmt;
-	private ResultSet rs;
-
+	private ResultSet rs;	
+	
 	public DatabaseConnection() {
 		
 		try{  
 		//Class.forName("com.mysql.cj.jdbc.Driver");  
 				Class.forName("com.mysql.jdbc.Driver");
 				//connection setup
-				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","");  
-				//here shs_db is database name, root is username and password  is empty
-				 stmt=con.createStatement();  
+				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root",""); 
+				stmt=con.createStatement();  
 		}catch(Exception e){ System.out.println(e);}  
 	}
 
