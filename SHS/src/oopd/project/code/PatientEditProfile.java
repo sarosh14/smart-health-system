@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,8 +25,18 @@ public class PatientEditProfile {
 	private JTextField dtrpnAddress;
 	private JTextField textField_6;
 	private JComboBox comboBox;
+	private JComboBox comboBox1;
 	private JTextField textField_1;
 	private JButton btnNewButton;
+	//private String Patientname;
+	//private String PatientPassword;
+	private String Pname;
+	private String Pdob;
+	private String Pgen;
+	private String Paddr;
+	private String Pcontact;
+	private String Ppass;
+	private ResultSet rs;
 
 	/**
 	 * Launch the application.
@@ -55,7 +67,7 @@ public class PatientEditProfile {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame("Add New Patient");
+		frame = new JFrame("Edit Profile");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);   
@@ -130,12 +142,75 @@ public class PatientEditProfile {
 		textField_6.setColumns(10);
 				
 	
-		String gender[]={"Male","Female"};  
+		String gender[]={"M","F"};  
 		comboBox = new JComboBox(gender);
 		comboBox.setBounds(165, 83, 77, 24);
 		frame.getContentPane().add(comboBox);
-		btnNewButton = new JButton("Add");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton = new JButton("Update");
+		
+		//System.out.println(PatientView.patientid);
+		
+		
+		try{  
+			//Class.forName("com.mysql.cj.jdbc.Driver");  
+			
+					Class.forName("com.mysql.jdbc.Driver");
+					//connection setup
+					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");  
+					//here shs_db is database name, root is username and password  is empty
+					Statement  stmt=con.createStatement(); 
+					
+					//System.out.println("1==="+username1);
+					try
+					{ 
+						int fetch_pid=PatientView.patientid ;
+					// rs=stmt.executeQuery("SELECT * FROM Patient "+
+								//"where Pid='"+fetch_pid+"'");
+					 rs=stmt.executeQuery("SELECT * FROM Patient where Pid="+fetch_pid);
+					 
+					}
+				    catch(Exception e){ System.out.println(e);}
+					
+						while(rs.next())  
+						{
+							 Pname=rs.getString(2);     //name
+							 Pdob=rs.getString(3);  //dob
+							 Pgen=rs.getString(4);//gen
+							 Paddr=rs.getString(5);  //add
+							 Pcontact=rs.getString(6);  //con
+							 Ppass=rs.getString(7);  //pass
+						}
+						// System.out.println(Pgen);
+						
+						 //Setting combobox value on first index with table value
+						 if(Pgen.equals("F"))
+						{  
+							
+							String gendr[]={"F","M"};  
+							comboBox = new JComboBox(gendr);
+							comboBox.setBounds(165, 83, 77, 24);
+							frame.getContentPane().add(comboBox);
+						}
+						else
+						{   
+							
+							String gendr[]={"M","F"};  
+							comboBox = new JComboBox(gendr);
+							comboBox.setBounds(165, 83, 77, 24);
+							frame.getContentPane().add(comboBox);
+						}
+						
+						textField.setText(Pname);
+						textField_1.setText(Pdob);
+						textField_6.setText(Paddr);
+						textField_3.setText(Pcontact);
+						textField_4.setText(Ppass);
+		
+		}
+		
+		catch(Exception e){ System.out.println(e);}
+		
+			btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String gend = (String)comboBox.getEditor().getItem();
@@ -144,9 +219,10 @@ public class PatientEditProfile {
 				String address = textField_6.getText();
 				String contact = textField_3.getText();
 				String password = textField_4.getText();
-				
 				try {
 		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");
+		            //here wrote query for update not insert in db
+		            
 		            String sql = "INSERT INTO Patient(Name, DOB, Gender, Address, ContactNo, Password ) values (?, ?, ?, ?, ?, ?) ";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 		            statement.setString(1, patientname);
@@ -165,7 +241,7 @@ public class PatientEditProfile {
 		        } 
 			}
 		});
-		btnNewButton.setBounds(32, 239, 61, 25);
+		btnNewButton.setBounds(32, 239, 92, 25);
 		frame.getContentPane().add(btnNewButton);
 		lblYyyymmdd = new JLabel("* yyyy/MM/dd");
 		lblYyyymmdd.setBounds(328, 53, 92, 21);

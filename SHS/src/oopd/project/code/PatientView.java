@@ -23,10 +23,11 @@ import java.sql.*;
 public class PatientView {
 
 	private JFrame frame;
-	private String PatientId;
+	private String Patientname;
 	private String PatientPassword;
 	private JTextField textField;
 	private JTextField textField_1;
+	public static int patientid;
 	/**
 	 * Launch the application.
 	 */
@@ -98,16 +99,33 @@ public class PatientView {
 							
 								while(rs.next())  
 								{
-									PatientId=rs.getString(1);
+									Patientname=rs.getString(1);
 									PatientPassword=rs.getString(2);       
 								}
 							
 							//String pswrd=rs.getString(1);  
 							
-				if(username1.equals(PatientId) & password1.equals(PatientPassword))
+				if(username1.equals(Patientname) & password1.equals(PatientPassword))
 				//if(password1.equals(pswrd))
 				{
 					System.out.println("Login Succsessfully done!");
+					
+					
+						try
+						{
+						 rs=stmt.executeQuery("SELECT Pid FROM Patient "+
+						"where Name='"+username1+"' and Password='"+password1+"'");
+						}
+					    catch(Exception e){ System.out.println(e);}
+						
+							while(rs.next())  
+							{
+								patientid=rs.getInt(1);
+							}
+							
+					
+					
+					
 					PatientWork patientwork = new PatientWork();
 					
 					window.frame.dispose();
@@ -117,7 +135,7 @@ public class PatientView {
 				else
 				{
 					System.out.println("Incorrect Info!");
-					JOptionPane.showMessageDialog(frame, "Incorrect Info!");
+					JOptionPane.showMessageDialog(frame, "Incorrect Info!Please correct it");
 					window.frame.dispose();
 					window.invoke();
 					
