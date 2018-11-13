@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-oracle">
+
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -12,5 +15,6 @@
 	<classpathentry exported="true" kind="lib" path="/home/sarosh/repository/iiitD_Oopd_Project_2018/SHS/lib/rs2xml.jar"/>
 	<classpathentry exported="true" kind="lib" path="/home/sarosh/repository/iiitD_Oopd_Project_2018/SHS/lib/com.mysql.jdbc_5.1.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="/home/sarosh/repository/iiitD_Oopd_Project_2018/SHS/lib/jgoodies-common-1.4.0.jar"/>
+
 	<classpathentry kind="output" path="bin"/>
 </classpath>
