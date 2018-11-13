@@ -16,7 +16,7 @@ public class SmartHealthCareSystem {
 	public static void main(String[] args) {
 
 		 LogExceptionsToFile logs=new LogExceptionsToFile(SmartHealthCareSystem.class.getName());
-		 db.readDb("help_keyword");
+		// db.readDb("help_keyword");
 		 db.closeDb();
 		
 		logs.LOGGER.info("Hello");

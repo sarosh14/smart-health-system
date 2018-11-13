@@ -3,6 +3,7 @@
 	<name>SmartHealthCareSystem</name>
 	<comment></comment>
 	<projects>
+		<project>iiitD_Oopd_Project_2018</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

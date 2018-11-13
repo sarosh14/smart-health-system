@@ -129,28 +129,12 @@ public class AdminView {
 							.addContainerGap())
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-
 							.addGap(226))))
-							.addGap(214))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-							.addGap(149))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblPas, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(230))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-							.addGap(146))))
-
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(41)
-
 					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
@@ -161,17 +145,6 @@ public class AdminView {
 					.addGap(18)
 					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(69))
-
-					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblPas, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-					.addGap(18)
-					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-					.addGap(68))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
