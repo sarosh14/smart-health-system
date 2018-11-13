@@ -82,6 +82,9 @@ public class HomePage {
 				else if(rdbtnNewRadioButton_1.isSelected())
 				{
 					//Doctor
+					DoctorView doctorView=new DoctorView();
+					window.frame.dispose();
+					doctorView.invoke();
 				}
 					
 				

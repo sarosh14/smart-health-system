@@ -19,6 +19,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JPasswordField;
 
 public class AdminView {
 
@@ -26,14 +27,13 @@ public class AdminView {
 	private String adminId="admin";
 	private String adminPassword="admin";
 	private JTextField textField;
-	private JTextField textField_1;
 
-	 
-	/**
-	 * Launch the application.
-	 */
+
 	static AdminView window=new AdminView();
 	private JLabel lblPas;
+	private JPasswordField passwordField;
+	
+	
 	public void invoke()
 	{
 		EventQueue.invokeLater(new Runnable() {
@@ -65,11 +65,8 @@ public class AdminView {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
 		int flag = 0;
-		
+		passwordField = new JPasswordField();
 		JLabel lblUserName = new JLabel("User Name");
 		
 		lblPas = new JLabel("Password");
@@ -79,7 +76,7 @@ public class AdminView {
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Login successful");
 				String username1 = textField.getText();
-				String password1 = textField_1.getText();
+				String password1 = passwordField.getText();
 				
 				if(username1.equals(adminId) & password1.equals(adminPassword))
 				{
@@ -101,43 +98,47 @@ public class AdminView {
 			}
 			
 		});
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(145)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+							.addGap(146))
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addComponent(lblPas, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(142)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(223))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblPas)
-								.addContainerGap())
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-								.addContainerGap())
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-								.addGap(146))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-								.addGap(145)))))
+							.addGap(226))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(41)
-					.addComponent(lblUserName, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblPas)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLogin)
-					.addGap(86))
+					.addGap(12)
+					.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(69))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

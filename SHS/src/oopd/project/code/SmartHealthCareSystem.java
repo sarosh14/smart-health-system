@@ -11,7 +11,7 @@ import oopd.project.logging.LogExceptionsToFile;
 public class SmartHealthCareSystem {
 	
 	
-	 DatabaseConnection db=new DatabaseConnection();
+	// DatabaseConnection db=new DatabaseConnection();
 	
 	
 	public static void main(String[] args) {

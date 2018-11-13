@@ -42,10 +42,10 @@ public class LogExceptionsToFile {
 		
 		File file=new File(fileName);
 		
-		if(!file.exists())
+		/*if(!file.exists())
 		{
 			file.createNewFile();
-		}
+		}*/
 		
 		fileHandler=new FileHandler(fileName,true);
 		LOGGER.addHandler(fileHandler);
