@@ -8,6 +8,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
 
 public class DoctorWork {
 
@@ -52,18 +53,26 @@ public class DoctorWork {
 		JRadioButton rdbtnAdviceTest = new JRadioButton("Advice Test");
 		
 		JRadioButton rdbtnLocationUpdate = new JRadioButton("Location Update");
+		
+		JButton btnSelect = new JButton("Select");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(30)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(rdbtnSeePatientRecord)
-						.addComponent(rdbtnLocationUpdate)
-						.addComponent(rdbtnAdviceTest)
-						.addComponent(rdbtnChangeDoctor)
-						.addComponent(rdbtnSeePatientDescription))
-					.addContainerGap(224, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(30)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdbtnSeePatientRecord)
+								.addComponent(rdbtnLocationUpdate)
+								.addComponent(rdbtnAdviceTest)
+								.addComponent(rdbtnChangeDoctor)
+								.addComponent(rdbtnSeePatientDescription)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(39)
+							.addComponent(btnSelect, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(101)))
+					.addGap(234))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -78,7 +87,9 @@ public class DoctorWork {
 					.addComponent(rdbtnLocationUpdate)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(rdbtnSeePatientRecord)
-					.addContainerGap(135, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnSelect, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(85))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

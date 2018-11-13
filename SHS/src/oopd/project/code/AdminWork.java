@@ -77,21 +77,29 @@ public class AdminWork {
 					addDoctor.invoke();
 					
 				}
-				if(rdbtn1.isSelected())
+				else if(rdbtn1.isSelected())
 				{
-					//REmove doctor
+					ARemoveDoctor aRemoveDoctor = new ARemoveDoctor();
+					window.frame.dispose();
+					aRemoveDoctor.invoke();
 				}
-				if(rdbtn3.isSelected())
+				else if(rdbtn3.isSelected())
 				{
-					//view patient info
+					AViewPatient aViewPatient = new AViewPatient();
+					window.frame.dispose();
+					aViewPatient.invoke();
 				}
-				if(rdbtn4.isSelected())
+				else if(rdbtn4.isSelected())
 				{
-					//view doctor info
+					AViewDoctor aViewDoctor = new AViewDoctor();
+					window.frame.dispose();
+					aViewDoctor.invoke();
 				}
-				if(rdbtn5.isSelected())
+				else if(rdbtn5.isSelected())
 				{
-					//ReassignDoctor
+					AReassignDocId aReassignDocId = new AReassignDocId();
+					window.frame.dispose();
+					aReassignDocId.invoke();
 				}
 			}
 		});
@@ -109,89 +117,101 @@ public class AdminWork {
 		JLabel lblViewDoctor = new JLabel("4- View Doctor Info");
 		
 		JLabel lblReassignDoctor = new JLabel("5- Reassign Doctor");
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage homePage =new HomePage();
+				window.frame.dispose();
+				homePage.invoke();
+			}
+		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(64)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-							.addGap(54))
+							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+							.addGap(74))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-							.addGap(73))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblAddDoctor, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-									.addGap(21))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblRemoveDoctor, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-									.addGap(10))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblViewPatient, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-									.addGap(10)))
-							.addGap(46)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(rdbtn3, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-								.addComponent(rdbtn1, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-								.addComponent(rdbtn2, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
+							.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+							.addGap(93))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblViewDoctor, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-									.addGap(10))
-								.addComponent(lblReassignDoctor, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-							.addGap(46)
+									.addComponent(lblAddDoctor, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+									.addGap(11))
+								.addComponent(lblRemoveDoctor, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+							.addGap(56)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(rdbtn5, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-								.addComponent(rdbtn4, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
+								.addComponent(rdbtn2, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+								.addComponent(rdbtn1, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+							.addGap(20))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-							.addGap(225)))
-					.addGap(47))
+							.addComponent(lblViewPatient, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+							.addGap(56)
+							.addComponent(rdbtn3, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+							.addGap(10))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblReassignDoctor, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+								.addComponent(lblViewDoctor, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+							.addGap(56)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdbtn5, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(rdbtn4, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+									.addGap(10))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+							.addGap(252)))
+					.addGap(17))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(358)
+					.addComponent(btnLogout, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(12)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
+					.addComponent(btnLogout, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
 					.addGap(11)
-					.addComponent(lblNewLabel_1)
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
 					.addGap(24)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(19)
-							.addComponent(rdbtn1, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-							.addGap(22))
-						.addComponent(rdbtn2)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addComponent(lblAddDoctor, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+							.addComponent(lblAddDoctor, GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
 							.addGap(4)
-							.addComponent(lblRemoveDoctor, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-							.addGap(10)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-									.addComponent(rdbtn3, GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.RELATED))
-								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-									.addComponent(lblViewPatient, GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-									.addGap(3)))))
+							.addComponent(lblRemoveDoctor)
+							.addGap(9))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(rdbtn2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(23))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(19)
+							.addComponent(rdbtn1, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
 					.addGap(2)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblViewPatient, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtn3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(1)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblViewDoctor, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+							.addComponent(lblViewDoctor)
 							.addGap(5)
-							.addComponent(lblReassignDoctor, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-							.addGap(13))
-						.addComponent(rdbtn4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addComponent(lblReassignDoctor))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(18)
-							.addComponent(rdbtn5, GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
-					.addGap(12)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
-					.addGap(38))
+							.addComponent(rdbtn5, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(rdbtn4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(26)))
+					.addGap(27)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 32, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
