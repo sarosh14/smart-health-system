@@ -84,7 +84,7 @@ public class PatientView {
 					
 							Class.forName("com.mysql.jdbc.Driver");
 							//connection setup
-							Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");  
+							Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project2","root","");  
 							//here shs_db is database name, root is username and password  is empty
 							Statement  stmt=con.createStatement(); 
 							

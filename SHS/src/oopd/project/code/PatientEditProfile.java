@@ -146,7 +146,7 @@ public class PatientEditProfile {
 				String password = textField_4.getText();
 				
 				try {
-		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");
+		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project2","root","");
 		            String sql = "INSERT INTO Patient(Name, DOB, Gender, Address, ContactNo, Password ) values (?, ?, ?, ?, ?, ?) ";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 		            statement.setString(1, patientname);
