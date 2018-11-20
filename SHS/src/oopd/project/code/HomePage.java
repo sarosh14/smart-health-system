@@ -16,6 +16,10 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import oopd.project.code.admin.AdminView;
+import oopd.project.code.doctor.DoctorSignIn;
+import oopd.project.code.patient.PatientView;
+
 public class HomePage {
 
 	private JFrame frame;
@@ -50,14 +54,17 @@ public class HomePage {
 	 */
 	private void initialize() {
 		frame = new JFrame("SHS Home-Page");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 675, 417);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JRadioButton radioButton = new JRadioButton("");
+		radioButton.setBounds(414, 122, 138, 23);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
+		rdbtnNewRadioButton.setBounds(414, 161, 35, 23);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
+		rdbtnNewRadioButton_1.setBounds(414, 205, 44, 23);
 		
 		ButtonGroup G = new ButtonGroup();
 		G.add(radioButton);
@@ -66,6 +73,7 @@ public class HomePage {
 		
 		
 		JButton btnNewButton = new JButton("Select");
+		btnNewButton.setBounds(173, 253, 101, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(radioButton.isSelected())
@@ -82,15 +90,13 @@ public class HomePage {
 				{   
 					PatientView PatientView = new PatientView();
 					window.frame.dispose();
-					PatientView.invoke();
-					//Patient
+					//PatientView.invoke();
+					
 				}
 				else if(rdbtnNewRadioButton_1.isSelected())
 				{
-					//Doctor
-					DoctorView doctorView=new DoctorView();
+					new DoctorSignIn();
 					window.frame.dispose();
-					doctorView.invoke();
 				}
 					
 				
@@ -98,82 +104,24 @@ public class HomePage {
 		});
 		
 		JLabel lblChooseAnyOne = new JLabel("Choose Any one option");
+		lblChooseAnyOne.setBounds(146, 44, 183, 28);
 		
 		JLabel lblAdmin = new JLabel("Admin");
+		lblAdmin.setBounds(173, 122, 187, 27);
 		
 		JLabel lblPatient = new JLabel("Patient");
+		lblPatient.setBounds(173, 166, 177, 23);
 		
 		JLabel lblDoctor = new JLabel("Doctor");
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(61)
-					.addComponent(lblChooseAnyOne, GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-					.addGap(206))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(63)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(286))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(lblPatient, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-											.addGap(10))
-										.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
-									.addGap(54))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblDoctor, GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-									.addContainerGap())
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-									.addGap(102))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-									.addGap(111))))))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblChooseAnyOne, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-					.addGap(20)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblAdmin, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-							.addGap(12))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(radioButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
-							.addGap(16)))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(5)
-							.addComponent(lblPatient, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-							.addGap(1))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
-							.addGap(6)))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(18)
-							.addComponent(lblDoctor, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(5))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(15)
-							.addComponent(rdbtnNewRadioButton_1, GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
-					.addGap(25)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
-					.addGap(50))
-		);
-		frame.getContentPane().setLayout(groupLayout);
+		lblDoctor.setBounds(173, 208, 233, 15);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(lblChooseAnyOne);
+		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(lblPatient);
+		frame.getContentPane().add(lblAdmin);
+		frame.getContentPane().add(lblDoctor);
+		frame.getContentPane().add(radioButton);
+		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		frame.getContentPane().add(rdbtnNewRadioButton);
 	}
 }

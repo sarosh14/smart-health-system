@@ -1,4 +1,4 @@
-package oopd.project.code;
+package oopd.project.code.patient;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -17,6 +17,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class AddNewPatient {
 
@@ -29,18 +30,20 @@ public class AddNewPatient {
 	private JComboBox comboBox;
 	private JTextField textField_1;
 	private JButton btnNewButton;
-
+	//private int pid;
 	/**
 	 * Launch the application.
 	 */
-	static AddNewPatient window = new AddNewPatient();
+	//static AddNewPatient window = new AddNewPatient();
 	private JLabel lblYyyymmdd;
-	public void invoke() {
+	private JButton btnBack;
+	public AddNewPatient() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					initialize();
+					//window.frame.setVisible(true);
 					
-					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,107 +54,120 @@ public class AddNewPatient {
 	/**
 	 * Create the application.
 	 */
-	public AddNewPatient() {
-		initialize();
-	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame("Add New Patient");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 695, 478);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);   
-		
-		//increse jframe size
-		//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		//frame.setSize(screenSize.width,screenSize.height); 
-		
+		frame.setVisible(true);
+		frame.getContentPane().setLayout(null);
+			
 		
 		JTextField dtrpnName = new JTextField();
+		dtrpnName.setBounds(95, 27, 163, 26);
 		dtrpnName.setText("1- Name");
-		dtrpnName.setBounds(32, 37, 107, 21);
 		dtrpnName.setEditable(false);
 		frame.getContentPane().add(dtrpnName);
 		
 		JTextField dtrpnDepartmentId = new JTextField();
+		dtrpnDepartmentId.setBounds(95, 260, 159, 30);
 		dtrpnDepartmentId.setText("5- Contact No.");
-		dtrpnDepartmentId.setBounds(32, 144, 107, 21);
 		frame.getContentPane().add(dtrpnDepartmentId);
 		dtrpnDepartmentId.setEditable(false);
 		
 		JTextField dtrpnRank = new JTextField();
+		dtrpnRank.setBounds(95, 318, 135, 30);
 		dtrpnRank.setText("6- Password");
-		dtrpnRank.setBounds(32, 169, 107, 21);
 		frame.getContentPane().add(dtrpnRank);
 		dtrpnRank.setEditable(false);
 		
 		JTextField dtrpnDob = new JTextField();
+		dtrpnDob.setBounds(95, 74, 163, 30);
 		dtrpnDob.setText("2- D.O.B");
-		dtrpnDob.setBounds(32, 53, 107, 21);
 		frame.getContentPane().add(dtrpnDob);
 		dtrpnDob.setEditable(false);
 		
 		JTextField dtrpnGender = new JTextField();
+		dtrpnGender.setBounds(95, 134, 164, 30);
 		dtrpnGender.setText("3- Gender");
-		dtrpnGender.setBounds(32, 86, 107, 21);
 		frame.getContentPane().add(dtrpnGender);
 		dtrpnGender.setEditable(false);
 		
 		dtrpnAddress = new JTextField();
+		dtrpnAddress.setBounds(95, 196, 159, 36);
 		dtrpnAddress.setText("4- Address");
 		dtrpnAddress.setEditable(false);
-		dtrpnAddress.setBounds(32, 111, 107, 21);
 		frame.getContentPane().add(dtrpnAddress);
 		dtrpnAddress.setEditable(false);
 		
 		textField = new JTextField();
-		textField.setBounds(165, 37, 124, 19);
+		textField.setBounds(303, 25, 174, 30);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(165, 55, 124, 19);
+		textField_1.setBounds(303, 78, 170, 30);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(165, 146, 124, 19);
+		textField_3.setBounds(300, 260, 173, 30);
 		frame.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(165, 171, 124, 19);
+		textField_4.setBounds(300, 320, 173, 28);
 		frame.getContentPane().add(textField_4);
 		textField_4.setColumns(10);
 		
 
 		textField_6 = new JTextField();
-		textField_6.setBounds(165, 115, 124, 19);
+		textField_6.setBounds(300, 199, 173, 30);
 		frame.getContentPane().add(textField_6);
 		textField_6.setColumns(10);
-				
-	
-		String gender[]={"Male","Female"};  
+		
+		lblYyyymmdd = new JLabel("* yyyy/MM/dd");
+		lblYyyymmdd.setBounds(517, 78, 124, 21);
+		frame.getContentPane().add(lblYyyymmdd);
+		
+		//frame.getContentPane().add(combobox1);
+		String gender[]={"None","M","F"}; 
 		comboBox = new JComboBox(gender);
-		comboBox.setBounds(165, 83, 77, 24);
+		comboBox.setBounds(302, 136, 77, 24);
 		frame.getContentPane().add(comboBox);
 		btnNewButton = new JButton("Add");
+		btnNewButton.setBounds(95, 377, 148, 25);
+		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String gend = (String)comboBox.getEditor().getItem();
+				
+				String gend = comboBox.getSelectedItem().toString();
+
+				
+				//String gend = (String)comboBox.getEditor().getItem();
+				//System.out.println("sxxsxs"+gend);
 				String patientname = textField.getText();
 				String dob = textField_1.getText();
 				String address = textField_6.getText();
 				String contact = textField_3.getText();
 				String password = textField_4.getText();
-				
+				//String location1 = combobox1.getSelectedItem().toString();
+				if(gend.length()==0 || patientname.length()==0 || dob.length()==0 || address.length()==0 || contact.length()==0 || 
+						password.length()==0)
+				{
+					JOptionPane.showMessageDialog(frame, "All Fields require!");
+					
+				}
+				else
+				{
 				try {
-		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");
-		            String sql = "INSERT INTO Patient(Name, DOB, Gender, Address, ContactNo, Password ) values (?, ?, ?, ?, ?, ?) ";
+		            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project2","root","");
+		            String sql = "INSERT INTO Patient(Name, DOB, Gender, Address, ContactNo, Password ) Values (?, ?, ?, ?, ?, ?) ";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 		            statement.setString(1, patientname);
 		            statement.setString(2, dob);
@@ -161,28 +177,35 @@ public class AddNewPatient {
 		            statement.setString(6, password);
 		            int row = statement.executeUpdate();
 		            if (row > 0) {
-		                System.out.println("Insert in Database successfully done.");
+		                //System.out.println("Insert in Database successfully done.");
+		                JOptionPane.showMessageDialog(frame, "Successfully Added !");
+		                new PatientView();
+		                frame.dispose();
 		            }
 		            conn.close();
 		        } catch (SQLException ex) {
 		            ex.printStackTrace();
-		        } 
+		        }
+				}
 			}
 		});
-		btnNewButton.setBounds(32, 239, 61, 25);
-		frame.getContentPane().add(btnNewButton);
-		lblYyyymmdd = new JLabel("* yyyy/MM/dd");
-		lblYyyymmdd.setBounds(328, 53, 92, 21);
-		frame.getContentPane().add(lblYyyymmdd);
+		
+		
+		
+		btnBack = new JButton("Back");
+		btnBack.setBounds(303, 377, 163, 25);
+		frame.getContentPane().add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PatientView patientView =  new PatientView(); 
+				frame.dispose();
+			}
+		});
+		
+		
 		
 	          
-//	    
-//	    JComboBox cb=new JComboBox(country);    
-//	    cb.setBounds(50, 50,90,20);    
-//	    frame.add(cb);        
-//	    frame.setLayout(null);    
-//	    frame.setSize(400,500);    
-//	    frame.setVisible(true);
+
 	
 	}
 }

@@ -1,4 +1,4 @@
-package oopd.project.code;
+package oopd.project.code.admin;
 
 import java.awt.EventQueue;
 
@@ -19,6 +19,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import oopd.project.code.HomePage;
+
 import javax.swing.JPasswordField;
 
 public class AdminView {
@@ -28,14 +31,15 @@ public class AdminView {
 	private String adminPassword="admin";
 	private JTextField textField;
 
+	
 
+
+	 
+	/**
+	 * Launch the application.
+	 */
 	static AdminView window=new AdminView();
 	private JLabel lblPas;
-
-	private JPasswordField passwordField;
-	
-	
-
 	private JPasswordField textField_1;
 	public void invoke()
 	{
@@ -63,23 +67,27 @@ public class AdminView {
 	 */
 		private void initialize() {
 		frame = new JFrame("Admin");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 790, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		textField = new JTextField();
+		textField.setBounds(260, 163, 226, 22);
 		textField.setColumns(10);
 		int flag = 0;
-		passwordField = new JPasswordField();
+		
 		JLabel lblUserName = new JLabel("User Name");
+		lblUserName.setBounds(260, 128, 293, 29);
 		
 		lblPas = new JLabel("Password");
+		lblPas.setBounds(260, 191, 226, 15);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(264, 276, 81, 25);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Login successful");
 				String username1 = textField.getText();
-				String password1 = passwordField.getText();
+				String password1 = textField_1.getText();
 				
 				if(username1.equals(adminId) & password1.equals(adminPassword))
 				{
@@ -102,50 +110,24 @@ public class AdminView {
 			
 		});
 		
-
-	
 		textField_1 = new JPasswordField();
-
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(145)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-							.addGap(146))
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addComponent(lblPas, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(142)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(226))))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(41)
-					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblPas)
-					.addGap(12)
-					.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGap(69))
-		);
-		frame.getContentPane().setLayout(groupLayout);
+		textField_1.setBounds(260, 218, 226, 22);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(btnLogin);
+		frame.getContentPane().add(textField_1);
+		frame.getContentPane().add(lblPas);
+		frame.getContentPane().add(lblUserName);
+		frame.getContentPane().add(textField);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage homePage = new HomePage();
+				window.frame.dispose();
+				homePage.invoke();
+			}
+		});
+		btnBack.setBounds(664, 12, 114, 25);
+		frame.getContentPane().add(btnBack);
 	}
 }

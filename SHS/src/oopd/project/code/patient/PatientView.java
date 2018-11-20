@@ -1,4 +1,4 @@
-package oopd.project.code;
+package oopd.project.code.patient;
 
 import java.awt.EventQueue;
 
@@ -19,62 +19,73 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import oopd.project.code.HomePage;
+
 import java.sql.*;
+import javax.swing.JPasswordField;
 public class PatientView {
 
 	private JFrame frame;
 	private String Patientname;
 	private String PatientPassword;
 	private JTextField textField;
-	private JTextField textField_1;
-	public static int patientid;
+	private int pid=0;
+
+	//public static int pid;
 	/**
 	 * Launch the application.
 	 */
-	static PatientView window=new PatientView();
+	//static PatientView window=new PatientView();
 	private JLabel lblPas;
 	private ResultSet rs;
-	public void invoke()
-	{
+	private JPasswordField textField_1;
+	private JButton btnBack;
+	
+	
+	public PatientView() {
+		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
-					window.frame.setVisible(true);
+					initialize();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		
 	}
+
 
 	/**
 	 * Create the application.
 	 */
-	public PatientView() {
-		initialize();
-	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame("Patient");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 711, 481);
+		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		textField = new JTextField();
+		textField.setBounds(274, 159, 159, 24);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
 		int flag = 0;
-		
+			
 		JLabel lblUserName = new JLabel("User Name");
+		lblUserName.setBounds(274, 108, 293, 39);
 		
 		lblPas = new JLabel("Password");
+		lblPas.setBounds(274, 195, 80, 47);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(274, 293, 72, 24);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Login successful");
@@ -85,7 +96,7 @@ public class PatientView {
 					
 							Class.forName("com.mysql.jdbc.Driver");
 							//connection setup
-							Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project1","root","");  
+							Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Project2","root","");  
 							//here shs_db is database name, root is username and password  is empty
 							Statement  stmt=con.createStatement(); 
 							
@@ -115,29 +126,32 @@ public class PatientView {
 						{
 						 rs=stmt.executeQuery("SELECT Pid FROM Patient "+
 						"where Name='"+username1+"' and Password='"+password1+"'");
+						 
 						}
 					    catch(Exception e){ System.out.println(e);}
 						
 							while(rs.next())  
 							{
-								patientid=rs.getInt(1);
+								//patientid=rs.getInt(1);
+								pid=rs.getInt(1);
+
 							}
 							
 					
 					
 					
-					PatientWork patientwork = new PatientWork();
+					PatientWork patientwork = new PatientWork(pid);
 					
-					window.frame.dispose();
-					patientwork.invoke();    
+					frame.dispose();
+					//patientwork.invoke();    
 					
 				}
 				else
 				{
 					System.out.println("Incorrect Info!");
 					JOptionPane.showMessageDialog(frame, "Incorrect Info!Please correct it");
-					window.frame.dispose();
-					window.invoke();
+					//frame.dispose();
+					
 					
 				}
 				}catch(Exception e){ System.out.println(e);}
@@ -146,65 +160,37 @@ public class PatientView {
 		});
 		
 		JButton btnNewUser = new JButton("New User");
+		btnNewUser.setBounds(597, 12, 102, 25);
 		btnNewUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//System.out.println("Hello......");
 				//if new user in patient
 				AddNewPatient addnewPatient = new AddNewPatient();
-				window.frame.dispose();
-				addnewPatient.invoke();
+				frame.dispose();
+				//addnewPatient.invoke();
 			}
 		});
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(lblPas);
+		frame.getContentPane().add(lblUserName);
+		frame.getContentPane().add(textField);
+		frame.getContentPane().add(btnLogin);
+		frame.getContentPane().add(btnNewUser);
 		
+		textField_1 = new JPasswordField();
+		textField_1.setBounds(274, 241, 159, 24);
+		frame.getContentPane().add(textField_1);
 		
-		
-		
-		
-		
-		
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(145)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblPas, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(225))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-							.addGap(146))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-							.addGap(145))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-							.addGap(212))))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(327)
-					.addComponent(btnNewUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGap(21))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(btnNewUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGap(4)
-					.addComponent(lblUserName, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblPas)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-					.addGap(86))
-		);
-		frame.getContentPane().setLayout(groupLayout);
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomePage homePage = new HomePage();
+				homePage.invoke();
+				frame.dispose();
+			}
+			
+		});
+		btnBack.setBounds(12, 12, 93, 25);
+		frame.getContentPane().add(btnBack);
 	}
 }

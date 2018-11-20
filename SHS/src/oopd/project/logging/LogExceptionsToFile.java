@@ -39,18 +39,17 @@ public class LogExceptionsToFile {
 	public void log() throws IOException{
 		String fileName="Logs.log";
 		
-		File file=new File(fileName);
+		//File file=new File(fileName);
 		
-		/*if(!file.exists())
-
-	/*	if(!file.exists())
+	
+		/*	if(!file.exists())
 		{
 			file.createNewFile();
 		}*/
 		
 		fileHandler=new FileHandler(fileName,true);
 		LOGGER.addHandler(fileHandler);
-		LOGGER.setLevel(Level.INFO);
+		
 		SimpleFormatter simpleFormatter=new SimpleFormatter();
 		fileHandler.setFormatter(simpleFormatter);
 	}

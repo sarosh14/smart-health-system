@@ -1,26 +1,22 @@
 package oopd.project.code;
+
 import oopd.project.database.DatabaseConnection;
 import oopd.project.logging.LogExceptionsToFile;
 
+/**
+PROJECT TEAM-->
 
+Sarosh Hasan (MT18084)
+Shubham Gupta (Mt18055)
+Vikash Kumar Pandey (Mt18086)
+
+*/
 
 
 public class SmartHealthCareSystem {
 	
-	
-
-	// DatabaseConnection db=new DatabaseConnection();
-
-	 static DatabaseConnection db=new DatabaseConnection();
-
+	static DatabaseConnection con=new DatabaseConnection();
 	public static void main(String[] args) {
-
-		 LogExceptionsToFile logs=new LogExceptionsToFile(SmartHealthCareSystem.class.getName());
-		// db.readDb("help_keyword");
-		 db.closeDb();
-		
-		logs.LOGGER.info("Hello");
-	
 
 		HomePage homePage=new HomePage();
 		homePage.invoke();
