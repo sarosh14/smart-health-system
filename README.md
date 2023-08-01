@@ -1,2 +1,2 @@
-# iiitD_Oopd_Project_2018
+# SHS
 Smart HealthCare System 
